@@ -1,6 +1,7 @@
 using Aimmy2.Class;
 using Aimmy2.Controls;
 using Aimmy2.MouseMovementLibraries.GHubSupport;
+using MouseMovementLibraries.CustomDriverSupport;
 using Aimmy2.Other;
 using Aimmy2.Theme;
 using Aimmy2.UILibrary;
@@ -430,7 +431,7 @@ namespace Aimmy2
                         LGMouse.Close();
                         break;
                     case "Custom Driver":
-                        MouseMovementLibraries.CustomDriverSupport.CustomDriverMouse.Close();
+                        CustomDriverMouse.Close();
                         break;
                 }
             }
