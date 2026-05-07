@@ -24,8 +24,8 @@ namespace MouseMovementLibraries.CustomDriverSupport
         [DllImport("advapi32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
         private static extern int RegOpenKeyEx(nint hKey, string subKey, uint options, uint samDesired, out nint phkResult);
 
-        [DllImport("advapi32.dll", SetLastError = true)]
-        private static extern int RegSetValueEx(nint hKey, [MarshalAs(UnmanagedType.LPWStr)] string lpValueName, uint Reserved, uint dwType, byte[] lpData, uint cbData);
+        [DllImport("advapi32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
+        private static extern int RegSetValueEx(nint hKey, string lpValueName, uint Reserved, uint dwType, byte[] lpData, uint cbData);
 
         [DllImport("advapi32.dll", SetLastError = true)]
         private static extern int RegCloseKey(nint hKey);
