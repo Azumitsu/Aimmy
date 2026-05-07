@@ -4,6 +4,7 @@ using Aimmy2.MouseMovementLibraries.GHubSupport;
 using Aimmy2.UILibrary;
 using Class;
 using InputLogic;
+using MouseMovementLibraries.CustomDriverSupport;
 using MouseMovementLibraries.ddxoftSupport;
 using MouseMovementLibraries.RazerSupport;
 using Other;
@@ -232,6 +233,7 @@ namespace Aimmy2.Controls
                     uiManager.DDI_LGHUB = _mainWindow.AddDropdownItem(d, "LG HUB");
                     uiManager.DDI_RazerSynapse = _mainWindow.AddDropdownItem(d, "Razer Synapse (Require Razer Peripheral)");
                     uiManager.DDI_ddxoft = _mainWindow.AddDropdownItem(d, "ddxoft Virtual Input Driver");
+                    _mainWindow.AddDropdownItem(d, "Custom Driver");
 
                     // Setup handlers
                     uiManager.DDI_LGHUB.Selected += async (s, e) =>

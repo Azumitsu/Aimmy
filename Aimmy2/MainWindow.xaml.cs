@@ -422,10 +422,17 @@ namespace Aimmy2
 
         private void CleanupDrivers()
         {
-            if (Dictionary.dropdownState.TryGetValue("Mouse Movement Method", out var method) &&
-                method?.ToString() == "LG HUB")
+            if (Dictionary.dropdownState.TryGetValue("Mouse Movement Method", out var method))
             {
-                LGMouse.Close();
+                switch (method?.ToString())
+                {
+                    case "LG HUB":
+                        LGMouse.Close();
+                        break;
+                    case "Custom Driver":
+                        MouseMovementLibraries.CustomDriverSupport.CustomDriverMouse.Close();
+                        break;
+                }
             }
         }
 
@@ -873,7 +880,8 @@ namespace Aimmy2
                     ["SendInput"] = 1,
                     ["LG HUB"] = 2,
                     ["Razer Synapse (Require Razer Peripheral)"] = 3,
-                    ["ddxoft Virtual Input Driver"] = 4
+                    ["ddxoft Virtual Input Driver"] = 4,
+                    ["Custom Driver"] = 5
                 }),
                 (uiManager.D_ScreenCaptureMethod, "Screen Capture Method", new Dictionary<string, int>
                 {
@@ -1008,7 +1016,8 @@ namespace Aimmy2
                     ["SendInput"] = 1,
                     ["LG HUB"] = 2,
                     ["Razer Synapse (Require Razer Peripheral)"] = 3,
-                    ["ddxoft Virtual Input Driver"] = 4
+                    ["ddxoft Virtual Input Driver"] = 4,
+                    ["Custom Driver"] = 5
                 }),
 
                 ("Movement Path", uiManager.D_MovementPath, new Dictionary<string, int>
