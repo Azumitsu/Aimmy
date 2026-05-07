@@ -1,6 +1,7 @@
 using Aimmy2.Class;
 using Aimmy2.MouseMovementLibraries.GHubSupport;
 using Class;
+using MouseMovementLibraries.CustomDriverSupport;
 using MouseMovementLibraries.ddxoftSupport;
 using MouseMovementLibraries.RazerSupport;
 using MouseMovementLibraries.SendInputSupport;
@@ -56,6 +57,10 @@ namespace InputLogic
                 case "ddxoft Virtual Input Driver":
                     mouseDownAction = () => DdxoftMain.ddxoftInstance.btn!(1);
                     mouseUpAction = () => DdxoftMain.ddxoftInstance.btn(2);
+                    break;
+                case "Custom Driver":
+                    mouseDownAction = () => CustomDriverMouse.MouseDown();
+                    mouseUpAction = () => CustomDriverMouse.MouseUp();
                     break;
                 default:
                     mouseDownAction = () => mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
@@ -212,6 +217,10 @@ namespace InputLogic
 
                 case "ddxoft Virtual Input Driver":
                     DdxoftMain.ddxoftInstance.movR!(newPosition.X, newPosition.Y);
+                    break;
+
+                case "Custom Driver":
+                    CustomDriverMouse.Move(newPosition.X, newPosition.Y);
                     break;
 
                 default:
